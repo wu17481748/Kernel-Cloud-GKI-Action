@@ -5,9 +5,3 @@ on:
 jobs:
   build-kernel:
     uses: ./.github/workflows/yun-kernel.yml
-    with:
-      version: android13-${{ matrix.version }}
-      version_name: android13-${{ matrix.version }}.${{ matrix.sub_level }}
-      tag: android13-${{ matrix.version }}-${{ matrix.os_patch_level }}
-      patch_path: ${{ matrix.version }}
-      debug: true
