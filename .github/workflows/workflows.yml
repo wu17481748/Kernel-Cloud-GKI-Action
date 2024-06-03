@@ -1,0 +1,22 @@
+name: 大容量支持-kernel云编译
+on:
+  workflow_dispatch:
+
+jobs:
+  build-debug-kernel-a13:
+    strategy:
+      matrix:
+        include:
+          - version: "5.10"
+            sub_level: 187
+            os_patch_level: 2023-08
+          - version: "5.15"
+            sub_level: 119
+            os_patch_level: 2023-09
+    uses: ./.github/workflows/yun-kernel.yml
+    with:
+      version: android13-${{ matrix.version }}
+      version_name: android13-${{ matrix.version }}.${{ matrix.sub_level }}
+      tag: android13-${{ matrix.version }}-${{ matrix.os_patch_level }}
+      patch_path: ${{ matrix.version }}
+      debug: true
