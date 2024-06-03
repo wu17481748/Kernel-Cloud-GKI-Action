@@ -1,4 +1,4 @@
-name: 大容量支持-kernel云编译
+name: 大容量支持-GKI内核-云编译
 on:
   workflow_dispatch:
 
